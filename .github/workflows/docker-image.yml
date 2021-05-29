@@ -1,22 +1,23 @@
+---
 name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
 
-  test: Test Image
-
+  test:
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag alpine_build:$(date +%s)
-      
+
     - name: Create Issue on failure.
       if: failure()
       uses: buluma/create-issue-action@v2.0.0
@@ -26,7 +27,7 @@ jobs:
         assignees: ${{github.actor}}
         labels: bug
         body: Workflow failed for commit ${{github.sha}}
-        
+
   # If on master branch, build and release image.
   release:
     name: Release
@@ -53,7 +54,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ github.repository }}:latest
-      
+
       - name: Create Issue on failure.
         if: failure()
         uses: buluma/create-issue-action@v2.0.0
