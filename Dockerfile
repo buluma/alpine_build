@@ -1,4 +1,5 @@
 FROM alpine:latest
+LABEL maintainer="Michael Buluma"
 
 RUN \
     apk update && \
