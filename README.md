@@ -1,16 +1,13 @@
-# Alpine
+# Alpine Test Build
+
+[![Docker Test](https://github.com/buluma/alpine_build/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/buluma/alpine_build/actions/workflows/docker-publish.yml) [![Docker Image CI](https://github.com/buluma/alpine_build/actions/workflows/docker-image.yml/badge.svg)](https://github.com/buluma/alpine_build/actions/workflows/docker-image.yml)
 
 An Alpine base image for patching.
 
 ### Building
 ```sh
-$ git clone https://github.com/konstruktoid/Alpine_Build.git
-$ cd Alpine_Build
-$ docker build -f Dockerfile -t konstruktoid/alpine:latest .
+$ git clone https://github.com/buluma/alpine_build.git
+$ cd alpine_build
+$ docker build -f Dockerfile -t buluma/alpine_build:latest .
 ```
 
-== Recommended reading
-https://securityblog.redhat.com/2014/12/18/before-you-initiate-a-docker-pull/[Before you initiate a “docker pull”] +
-https://github.com/konstruktoid/Docker/blob/master/Security/CheatSheet.adoc[Docker Security Cheat Sheet] +
-http://www.infoq.com/news/2015/05/Docker-Image-Vulnerabilities[Security Vulnerabilities in Docker Hub Images] +
-https://joeyh.name/blog/entry/docker_run_debian/[what does docker.io run -it debian sh run?]
